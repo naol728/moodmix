@@ -20,7 +20,7 @@ export default function Home() {
         <h2 className="text-text text-lg text-center font-bold font-serif sm:text-3xl -mt-16">
           Find the perfect playlist for your mood.
         </h2>
-        <p className="text-secondaryText px-3 mx-auto text-lg sm:w-[70%] mb-8 mt-8">
+        <p className="text-secondaryText px-3 mx-auto text-xl sm:w-[70%] mb-8 mt-8">
           Whether you're feeling upbeat, relaxed, or nostalgic, MoodMixer
           curates personalized music recommendations to match your emotions.
           Simply tell us how you're feeling, and we'll generate a custom
@@ -30,8 +30,6 @@ export default function Home() {
       <Link to="/dialog">
         <Button>Get Started</Button>
       </Link>
-
-      <Gradient />
     </div>
   );
 }

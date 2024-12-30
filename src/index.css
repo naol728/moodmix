@@ -10,3 +10,12 @@
   background: linear-gradient(to top, #ff7e5f, #feb47b);
   z-index: -1;
 }
+.custom-card {
+  @apply sm:w-[65%] p-3 sm:p-5 rounded-xl   flex flex-col items-center justify-center  shadow-lg shadow-slate-700 cursor-pointer hover:text-secondaryText border-border border-2;
+}
+.custom-card .emoji {
+  @apply text-3xl sm:text-4xl  whitespace-nowrap;
+}
+.custom-card .label {
+  @apply font-bold sm:text-2xl text-xl pt-3  sm:pt-0 sm:mt-10;
+}
