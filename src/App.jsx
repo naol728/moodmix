@@ -4,10 +4,16 @@ import Home from "./page/home";
 import Dialog from "./page/Dialog";
 import Playlist from "./page/Playlist";
 import About from "./page/About";
+import Musiccontext from "./context/musiccontext";
+import Favorite from "./page/Favorite";
 
 const router = createBrowserRouter([
   {
-    element: <Applayout />,
+    element: (
+      <Musiccontext>
+        <Applayout />
+      </Musiccontext>
+    ),
     children: [
       {
         path: "/",
@@ -17,12 +23,17 @@ const router = createBrowserRouter([
         path: "/dialog",
         element: <Dialog />,
       },
+
+      {
+        path: "/favorite",
+        element: <Favorite />,
+      },
       {
         path: "playlist",
         element: <Playlist />,
       },
       {
-        path: "about",
+        path: "/about",
         element: <About />,
       },
     ],

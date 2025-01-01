@@ -17,5 +17,5 @@
   @apply text-3xl sm:text-4xl  whitespace-nowrap;
 }
 .custom-card .label {
-  @apply font-bold sm:text-2xl text-xl pt-3  sm:pt-0 sm:mt-10;
+  @apply font-bold sm:text-xl text-base pt-3  sm:pt-0 sm:mt-10;
 }
