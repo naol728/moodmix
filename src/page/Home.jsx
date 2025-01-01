@@ -27,7 +27,7 @@ export default function Home() {
           playlist just for you!
         </p>
       </div>
-      <Link to="/dialog">
+      <Link to="/dialog" className="z-10">
         <Button>Get Started</Button>
       </Link>
     </div>
