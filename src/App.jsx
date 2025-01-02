@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Favorite />,
       },
       {
-        path: "playlist",
+        path: "/playlist",
         element: <Playlist />,
       },
       {
