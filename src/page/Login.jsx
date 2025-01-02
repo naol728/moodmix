@@ -1,50 +1,81 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { useAuth } from "../context/Authcontext";
+import { Navigate, useNavigate } from "react-router-dom";
+import { SignInPage } from "@toolpad/core/SignInPage";
+import { AppProvider } from "@toolpad/core/AppProvider";
 import {
   dosigninwithemailandpassword,
   dosignwithgoogle,
 } from "../firebase/Auth";
+
 export default function Login() {
-  const [isSignin, setIsSignin] = useState(true);
   const [error, setError] = useState("");
-  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const { islogedin } = useAuth();
-  const onsubmoit = async (e) => {
-    e.preventDefault();
-    if (!isSignin) {
-      setIsSignin(true);
-      await dosigninwithemailandpassword(email, password);
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // To handle loading state
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // To track user login
+  const navigate = useNavigate(); // Navigation hook
+
+  const handleSignIn = async (provider, formData) => {
+    setError("");
+    setIsLoading(true);
+
+    try {
+      if (provider.id === "google") {
+        await dosignwithgoogle();
+      } else if (provider.id === "credentials") {
+        const { email, password } = formData;
+        await dosigninwithemailandpassword(email, password);
+      }
+      setIsLoggedIn(true); // Mark user as logged in
+      navigate("/home"); // Redirect to home page
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const onGoogleSignin = async (e) => {
-    e.preventDefault();
-    if (!isSignin) {
-      setIsSignin(true);
-      await dosignwithgoogle().catch((error) => {
-        setError(error.message);
-      });
-    }
-  };
+  if (isLoggedIn) {
+    return <Navigate to="/home" />;
+  }
 
   return (
-    <div>
-      {/* {error && <h1>{error}</h1>}
-      {islogedin && <Navigate to="/home" />}
-      <Link to="/login">login</Link>
-      <Link to="/regester">regester</Link>
-      <h1>Login</h1>
-      <form
-        onSubmit={onsubmoit}
-        className="flex h-screen justify-center items-center"
-      >
-        <label htmlFor="">email</label>
-        <input type="text" onChange={(e) => setEmail(e.target.value)} />
-        <label htmlFor="">password</label>
-        <input type="password" onChange={(e) => setPassword(e.target.value)} />
-      </form> */}
-    </div>
+    <AppProvider>
+      <SignInPage
+        providers={[
+          { id: "google", name: "Google" },
+          { id: "credentials", name: "Email and Password" },
+        ]}
+        signIn={handleSignIn}
+        error={error}
+        slotProps={{
+          title: {
+            children: "Welcome to Our Service",
+          },
+          emailField: {
+            label: "Email",
+            type: "email",
+            value: email,
+            onChange: (e) => setEmail(e.target.value),
+            required: true,
+          },
+          passwordField: {
+            label: "Password",
+            type: "password",
+            value: password,
+            onChange: (e) => setPassword(e.target.value),
+            required: true,
+          },
+          submitButton: {
+            children: isLoading ? "Signing In..." : "Sign In",
+            disabled: isLoading,
+          },
+        }}
+        sx={{
+          margin: "auto",
+          padding: 4,
+        }}
+      />
+    </AppProvider>
   );
 }

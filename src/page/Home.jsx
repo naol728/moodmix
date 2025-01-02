@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../components/Button";
 import { useAuth } from "../context/Authcontext";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const { currentuser } = useAuth();
+  const { currentuser, islogedin } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!islogedin) {
+      navigate("/");
+    }
+  }, [islogedin, navigate]);
+
+  if (!islogedin) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className=" min-h-[95dvh]  flex flex-col justify-center items-center">
-      {/* <video
-        className="absolute top-0 left-0 w-full h-full object-cover backdrop-blur-md"
-        src="bgvideo.mp4"
-        autoPlay
-        loop
-        muted
-      ></video> */}
       <h1 className="text-[1.5rem]  sm:text-3xl text-text font-bold text-center z-10 ">
         🎶 Welcome to MoodMixer{" "}
         {currentuser.displayName ? currentuser.displayName : currentuser.email}{" "}

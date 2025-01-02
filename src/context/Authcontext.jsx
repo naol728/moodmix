@@ -27,11 +27,8 @@ export default function AuthProvider({ children }) {
     islogedin,
     loading,
   };
-  return (
-    <AuthContext.Provider value={value}>
-      {!islogedin && children}
-    </AuthContext.Provider>
-  );
+ 
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 export const useAuth = () => {
   const context = useContext(AuthContext);
