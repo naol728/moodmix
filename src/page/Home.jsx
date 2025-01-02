@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../components/Button";
-import Gradient from "../ui/Gradient";
+
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         🎶 Welcome to MoodMixer 🎶
       </h1>
       <div className="flex flex-col justify-center text-center mt-24 z-10">
-        <h2 className="text-text text-lg text-center font-bold font-serif sm:text-2xl -mt-16">
+        <h2 className="text-text text-lg text-center font-bold font-serif sm:text-xl -mt-16">
           Find the perfect playlist for your mood.
         </h2>
         <p className="text-secondaryText px-3 mx-auto text-sm sm:text-lg sm:w-[70%] mb-8 mt-8">
