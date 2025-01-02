@@ -6,6 +6,23 @@ const Music = createContext();
 export default function Musiccontext({ children }) {
   const navigate = useNavigate();
   const [generatedmusic, setGeneratedmusic] = useState([]);
+  const [favorite, setFavorite] = useState([]);
+  function handlefavorite(id) {
+    setFavorite((prevFavorites) => {
+      const isFavorite = prevFavorites.find((item) => item.id === id);
+      if (isFavorite) {
+        if (isFavorite.isfavorite) {
+          return prevFavorites.filter((item) => item.id !== id);
+        } else {
+          return prevFavorites.map((item) =>
+            item.id === id ? { ...item, isfavorite: !item.isfavorite } : item
+          );
+        }
+      } else {
+        return [...prevFavorites, { id, isfavorite: true }];
+      }
+    });
+  }
   const handlegenerate = async (genre) => {
     const accessToken = await getAccessToken();
 
@@ -28,6 +45,8 @@ export default function Musiccontext({ children }) {
       value={{
         generatedmusic,
         handlegenerate,
+        handlefavorite,
+        favorite,
       }}
     >
       {children}

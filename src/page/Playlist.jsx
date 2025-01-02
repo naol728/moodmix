@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMusic } from "../context/musiccontext";
 import { MdFavoriteBorder } from "react-icons/md";
-
+import { useNavigate } from "react-router-dom";
+import { MdFavorite } from "react-icons/md";
 export default function Playlist() {
-  const { generatedmusic } = useMusic();
-
+  const { generatedmusic,favorite,handlefavorite } = useMusic();
+  const navigate = useNavigate();
+  
+  console.log(favorite);
   useEffect(() => {
     if (generatedmusic.length === 0) {
-      window.location.href = "/dialog";
+      navigate("/dialog");
     }
-  }, []);
+  }, [generatedmusic, navigate]);
   return (
     <div>
-      <h1 className="text-center text-2xl font-bold mt-6">
+      <h1 className="text-center text-text text-2xl font-bold mt-6">
         🥳Enjoy Music 🥳
       </h1>
       <div className="mt-20">
@@ -31,8 +34,15 @@ export default function Playlist() {
                   title="Spotify Player"
                 />{" "}
               </div>
-              <span className="text-4xl relative -top-10">
-                <MdFavoriteBorder />
+              <span
+                className={`text-4xl relative text-text cursor-pointer -top-10 ${favorite.find((music) => music.id === item.id)?.isfavorite ? 'text-red-600' : ''}`}
+                onClick={() => handlefavorite(item.id)}
+              >
+                {favorite.find((music) => music.id === item.id)?.isfavorite ? (
+                  <MdFavorite />
+                ) : (
+                  <MdFavoriteBorder />
+                )}
               </span>
             </div>
           );

@@ -4,11 +4,11 @@ import { Outlet } from "react-router-dom";
 
 export default function Applayout() {
   return (
-    <div>
+    <div className="">
       <div>
         <Navbar />
       </div>
-      <div>
+      <div className="">
         <Outlet />
       </div>
     </div>

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#121211", // Dark background color
+        background: "#121213", // Dark background color
         text: "#E0E0E0", // Light gray text color
         secondaryText: "#A0A0A0", // Secondary gray text color
         accent: "#00B0FF", // Accent color (bright blue)

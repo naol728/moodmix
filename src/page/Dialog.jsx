@@ -6,8 +6,8 @@ export default function Dialog() {
   const { handlegenerate } = useMusic();
 
   return (
-    <div className=" h-[100dvh] sm:h-[90dvh] w-full flex flex-col items-center justify-between">
-      <h1 className="text-text text-center font-bold text-xl sm:text-3xl p-5  whitespace-nowrap">
+    <div className="  h-[100dvh]  sm:h-[100dvh] w-full flex flex-col items-center justify-between">
+      <h1 className="text-text text-center font-bold text-xl sm:text-2xl p-5  whitespace-nowrap">
         How do you feel Naol😀
       </h1>
       <div className="h-[85%] w-full sm:place-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-y-5 gap-5 px-5 sm:mx-8  text-text ">
@@ -50,11 +50,11 @@ export default function Dialog() {
           <div className="label">Nostalgic</div>
         </div>
       </div>
-      <div className="flex flex-col ml-10 sm:mb-20 sm:w-[75%] w-full sm:mt-14 mt-5 mr-4">
+      <div className="flex flex-col mx-4 sm:mb-20 sm:w-[75%] w-full sm:mt-14 mt-3 ">
         <h2 className="text-text ml-8 mb-2 font-bold text-lg">
           how do you feel
         </h2>
-        <div className="flex  justify-evenly sm:w-[80%] w-[85%]">
+        <div className="flex  justify-evenly items-center sm:w-[80%] w-[85%]">
           <textarea
             type="text"
             className=" bg-gray-900 w-[85%] text-text mx-5 px-3 py-2 rounded-lg resize-none"
