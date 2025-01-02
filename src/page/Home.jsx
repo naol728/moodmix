@@ -1,9 +1,11 @@
 import React from "react";
 import Button from "../components/Button";
-
+import { useAuth } from "../context/Authcontext";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+  const { currentuser } = useAuth();
+
   return (
     <div className=" min-h-[95dvh]  flex flex-col justify-center items-center">
       {/* <video
@@ -14,7 +16,9 @@ export default function Home() {
         muted
       ></video> */}
       <h1 className="text-[1.5rem]  sm:text-3xl text-text font-bold text-center z-10 ">
-        🎶 Welcome to MoodMixer 🎶
+        🎶 Welcome to MoodMixer{" "}
+        {currentuser.displayName ? currentuser.displayName : currentuser.email}{" "}
+        ,🎶
       </h1>
       <div className="flex flex-col justify-center text-center mt-24 z-10">
         <h2 className="text-text text-lg text-center font-bold font-serif sm:text-xl -mt-16">

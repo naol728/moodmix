@@ -1,11 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Applayout from "./page/Applayout";
-import Home from "./page/home";
+import Home from "./page/Home";
 import Dialog from "./page/Dialog";
 import Playlist from "./page/Playlist";
 import About from "./page/About";
 import Musiccontext from "./context/musiccontext";
 import Favorite from "./page/Favorite";
+import Login from "./page/Login";
+import Signin from "./page/Signin";
+import AuthProvider from "./context/Authcontext";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Login />,
+      },
+      {
+        path: "/regester",
+        element: <Signin />,
+      },
+      {
+        path: "/home",
         element: <Home />,
       },
       {
@@ -42,7 +53,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </>
   );
 }

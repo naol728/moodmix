@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDJk_QIxXwz9pf0VYNr68A06LfoFMwj1xo",
   authDomain: "moodmix-ae400.firebaseapp.com",
