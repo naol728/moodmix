@@ -10,7 +10,7 @@ export default function Dialog() {
       <h1 className="text-text text-center font-bold text-xl sm:text-2xl p-5  whitespace-nowrap">
         How do you feel Naol😀
       </h1>
-      <div className="h-[85%] w-full sm:place-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-y-5 gap-5 px-5 sm:mx-8  text-text ">
+      <div className="h-[85%] w-full sm:place-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-y-5 gap-5 px-5 sm:mx-5  text-text ">
         <div className="custom-card" onClick={() => handlegenerate("pop")}>
           <div className="emoji">😊🎉</div>
           <div className="label">Happy</div>
@@ -57,7 +57,7 @@ export default function Dialog() {
         <div className="flex  justify-evenly items-center sm:w-[80%] w-[85%]">
           <textarea
             type="text"
-            className=" bg-gray-900 w-[85%] text-text mx-5 px-3 py-2 rounded-lg resize-none"
+            className=" bg-gray-900 w-[85%] text-text mx-5 px-3 py-2 rounded-lg resize-none focus:outline-none"
             placeholder="write how do you feel we will generate a playlist for you"
           />
           <div>
