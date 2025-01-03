@@ -33,7 +33,7 @@ export default function Musiccontext({ children }) {
       params: {
         q: `genre:${genre}`,
         type: "track",
-        limit: 20,
+        limit: 10,
       },
     });
     setGeneratedmusic(response.data.tracks.items);
