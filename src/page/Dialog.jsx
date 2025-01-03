@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useMusic } from "../context/musiccontext";
 import Button from "../components/Button";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Dialog() {
   const { handlegenerate } = useMusic();
+  const { islogedin } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!islogedin) {
+      navigate("/");
+    }
+  }, [islogedin, navigate]);
 
+  if (!islogedin) {
+    return <Navigate to="/" />;
+  }
   return (
     <div className="  h-[100dvh]  sm:h-[100dvh] w-full flex flex-col items-center justify-between">
       <h1 className="text-text text-center font-bold text-xl sm:text-2xl p-5  whitespace-nowrap">

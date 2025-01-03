@@ -27,7 +27,7 @@ export default function Navbar() {
               Sign in
             </Link>{" "}
             <Link to="/regester" className="hover:underline">
-              Regester
+              Sign Up
             </Link>
           </div>
         )}
