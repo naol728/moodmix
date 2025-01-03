@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { SignInPage } from "@toolpad/core/SignInPage";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import {
@@ -11,9 +11,9 @@ export default function Login() {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // To handle loading state
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // To track user login
-  const navigate = useNavigate(); // Navigation hook
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const handleSignIn = async (provider, formData) => {
     setError("");
@@ -26,15 +26,15 @@ export default function Login() {
         const { email, password } = formData;
         await dosigninwithemailandpassword(email, password);
       }
-      setIsLoggedIn(true); // Mark user as logged in
-      navigate("/home"); // Redirect to home page
+      setIsLoggedIn(true);
+      navigate("/home");
     } catch (err) {
       setError(err.message);
     } finally {
       setIsLoading(false);
     }
   };
-
+  const signup = <Link to="/regester">regster</Link>;
   if (isLoggedIn) {
     return <Navigate to="/home" />;
   }
@@ -71,6 +71,7 @@ export default function Login() {
             disabled: isLoading,
           },
         }}
+        signUpLink={signup}
         sx={{
           margin: "auto",
           padding: 4,
