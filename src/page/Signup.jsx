@@ -4,7 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { SignInPage } from "@toolpad/core/SignInPage";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { useAuth } from "../context/Authcontext";
-export default function Signin() {
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isloading, setIsLoading] = useState(false);

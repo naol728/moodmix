@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import { Button } from "@mui/material";
 import { dosignout } from "../firebase/Auth";
-import { MdBrightnessMedium } from "react-icons/md";
+import { CiBrightnessDown } from "react-icons/ci";
 export default function Navbar() {
   const { islogedin } = useAuth();
   return (
-    <div className="   ml-1 mr-1   px-2 py-4 rounded-xl sm:px-3 sm:pt-5 shadow-xl text-text bg-slate-950 shadow-slate-900">
+    <div className="   ml-1 mr-1   px-2 py-4  sm:px-3 sm:pt-5 shadow-xl text-text  ">
       <div className="flex justify-between">
         <div>
           <Logo />
@@ -22,7 +22,7 @@ export default function Navbar() {
             <Link to="/about">About</Link>
           </div>
         ) : (
-          <div className="flex space-x-4 font-semibold text-text font-serif  ">
+          <div className="flex space-x-4 font-semibold text-text   ">
             <Link to="/" className="hover:underline">
               Sign in
             </Link>{" "}
@@ -34,7 +34,7 @@ export default function Navbar() {
 
         <div className="flex justify-center space-x-5  ">
           <div className="text-text text-3xl cursor-pointer">
-            <MdBrightnessMedium />
+            <CiBrightnessDown />
           </div>
           {islogedin && (
             <div onClick={() => dosignout()}>
