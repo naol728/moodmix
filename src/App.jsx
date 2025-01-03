@@ -7,7 +7,7 @@ import About from "./page/About";
 import Musiccontext from "./context/musiccontext";
 import Favorite from "./page/Favorite";
 import Login from "./page/Login";
-import Signin from "./page/Signin";
+import Signup from "./page/Signup";
 import AuthProvider from "./context/Authcontext";
 
 const router = createBrowserRouter([
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/regester",
-        element: <Signin />,
+        element: <Signup />,
       },
       {
         path: "/home",
