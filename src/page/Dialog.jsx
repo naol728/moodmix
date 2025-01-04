@@ -46,7 +46,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
-              onClick={() => handlegenerate("upbeat")}
+              onClick={() => handlegenerate("dance")}
             >
               <Typography variant="h3" gutterBottom>
                 😊🎉
@@ -232,7 +232,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
-              onClick={() => handlegenerate("clasical")}
+              onClick={() => handlegenerate("classical")}
             >
               <Typography variant="h3" gutterBottom>
                 💻📚
@@ -263,7 +263,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
-              onClick={() => handlegenerate("classical")}
+              onClick={() => handlegenerate("folk")}
             >
               <Typography variant="h3" gutterBottom>
                 🕰️📼
