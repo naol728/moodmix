@@ -11,11 +11,7 @@ export const docreateuserwithemailandpassword = async (email, password) => {
 };
 export const dosigninwithemailandpassword = async (email, password) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential;
   } catch (error) {
     console.error("Error signing in:", error.message);

@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 export default function Logo() {
   return (
-    <h1 className="text-text text-xl font-extrabold sm:text-xl font-serif ">
+    <h1 className="text-accent text-xl font-extrabold sm:text-2xl font-serif ">
       <Link to="/">MooDMixer</Link>
     </h1>
   );

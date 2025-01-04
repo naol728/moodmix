@@ -16,13 +16,23 @@ export default function Signup() {
   const styles = useStyles();
   const { islogedin } = useAuth();
   const onsubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
-    if (!isregester) {
+    setError("");
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      await docreateuserwithemailandpassword(email, password);
+      setIsLoading(false);
       setIsregester(true);
-      await docreateuserwithemailandpassword(email, password).catch((error) => {
-        setError(error.message);
-        setIsLoading(false);
-      });
+    } catch (error) {
+      setError(error.message);
+      setIsLoading(false);
     }
   };
   if (islogedin) {
@@ -31,7 +41,7 @@ export default function Signup() {
   return (
     <div>
       <AppProvider>
-        <Container maxWidth="xs" className={styles.formContainer}>
+        <Container maxWidth="xs">
           <Box
             component="form"
             onSubmit={onsubmit}
@@ -59,6 +69,7 @@ export default function Signup() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              sx={{ mt: 2 }}
               variant="outlined"
               fullWidth
               required
@@ -71,6 +82,7 @@ export default function Signup() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               variant="outlined"
+              sx={{ mt: 2 }}
               fullWidth
               required
             />
@@ -80,6 +92,7 @@ export default function Signup() {
               label="Confirm Password"
               type="password"
               value={confirmPassword}
+              sx={{ mt: 2 }}
               onChange={(e) => setConfirmPassword(e.target.value)}
               variant="outlined"
               fullWidth
@@ -92,11 +105,23 @@ export default function Signup() {
               color="primary"
               size="large"
               fullWidth
+              sx={{
+                mt: 2,
+                backgroundColor: "#00B0FF",
+                borderRadius: 2,
+                color: "#E0E0E0",
+              }}
             >
               Register
             </Button>
           </Box>
         </Container>
+        <Typography type="body3" textAlign={"center"} mt={2}>
+          i have an account {""}
+          <Link to="/" className="hover:underline">
+            Sign in
+          </Link>
+        </Typography>
       </AppProvider>
     </div>
   );

@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useMusic } from "../context/musiccontext";
 import Button from "../components/Button";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/Authcontext";
 
 export default function Dialog() {
   const { handlegenerate } = useMusic();
-  const { islogedin } = useAuth();
+  const { islogedin, currentuser } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
     if (!islogedin) {
@@ -19,7 +20,11 @@ export default function Dialog() {
   return (
     <div className="  h-[100dvh]  sm:h-[100dvh] w-full flex flex-col items-center justify-between">
       <h1 className="text-text text-center font-bold text-xl sm:text-2xl p-5  whitespace-nowrap">
-        How do you feel Naol😀
+        How do you feel
+        {currentuser.displayName
+          ? currentuser.displayName
+          : currentuser.email}{" "}
+        😀
       </h1>
       <div className="h-[85%] w-full sm:place-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-y-5 gap-5 px-5 sm:mx-5  text-text ">
         <div className="custom-card" onClick={() => handlegenerate("pop")}>
