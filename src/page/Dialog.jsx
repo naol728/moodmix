@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useMusic } from "../context/musiccontext";
-import Button from "../components/Button";
+import Button from "@mui/material/Button";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
-import { Grid, Box, Typography, Container } from "@mui/material";
+import { Grid, Box, Typography, Container, TextField } from "@mui/material";
+import { IoMdSend } from "react-icons/io";
 export default function Dialog() {
   const { handlegenerate } = useMusic();
   const { islogedin, currentuser } = useAuth();
@@ -18,7 +19,7 @@ export default function Dialog() {
     return <Navigate to="/" />;
   }
   return (
-    <div className="h-dvh">
+    <div>
       <Typography
         variant="h5"
         sx={{ mt: 3, fontWeight: "bold" }}
@@ -45,6 +46,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("upbeat")}
             >
               <Typography variant="h3" gutterBottom>
                 😊🎉
@@ -75,6 +77,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("acoustic")}
             >
               <Typography variant="h3" gutterBottom>
                 😢💔
@@ -105,6 +108,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("rock")}
             >
               <Typography variant="h3" gutterBottom>
                 ⚡🏋️‍♂️
@@ -135,6 +139,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("chill")}
             >
               <Typography variant="h3" gutterBottom>
                 😌🛋️
@@ -165,6 +170,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("R&B")}
             >
               <Typography variant="h3" gutterBottom>
                 ❤️💑
@@ -195,6 +201,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("heavy metal")}
             >
               <Typography variant="h3" gutterBottom>
                 😡🔥
@@ -225,6 +232,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("clasical")}
             >
               <Typography variant="h3" gutterBottom>
                 💻📚
@@ -255,6 +263,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              onClick={() => handlegenerate("classical")}
             >
               <Typography variant="h3" gutterBottom>
                 🕰️📼
@@ -274,6 +283,34 @@ export default function Dialog() {
             </Box>
           </Grid>
         </Grid>
+      </Container>
+
+      <Container maxWidth="lg" sx={{ width: "100%", mb: 3 }}>
+        <Typography
+          sx={{
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            borderRadius: 5,
+            marginLeft: 3,
+          }}
+          color="#00B0FF"
+          component="h1"
+        >
+          How do you feel tell us
+        </Typography>
+        <Box className="flex justify-evenly items-center mt-2">
+          <TextField
+            sx={{ width: "85%" }}
+            placeholder="tell us how do you feel we will generate you best music for your feeling"
+          />{" "}
+          <Button
+            variant="contained"
+            sx={{ backgroundColor: "#00B0FF", color: "#E0E0E0" }}
+            endIcon={<IoMdSend />}
+          >
+            send
+          </Button>{" "}
+        </Box>
       </Container>
     </div>
   );

@@ -28,7 +28,7 @@ export default function Favorite() {
           </div>
         )}
         {favorite.map((item) => (
-          <div className="flex justify-center -mt-10 items-center w-full">
+          <div className="flex justify-center bg-background -mt-10 items-center w-full">
             <iframe
               src={`https://open.spotify.com/embed/track/${item.id}?utm_source=generator`}
               allow="encrypted-media"

@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Applayout from "./page/Applayout";
-import Home from "./page/Home";
+import Home from "./page/home";
 import Dialog from "./page/Dialog";
 import Playlist from "./page/Playlist";
 import About from "./page/About";
@@ -9,6 +9,7 @@ import Favorite from "./page/Favorite";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
 import AuthProvider from "./context/Authcontext";
+import Profile from "./page/Profile";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,10 @@ const router = createBrowserRouter([
         path: "/dialog",
         element: <Dialog />,
       },
-
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
       {
         path: "/favorite",
         element: <Favorite />,
