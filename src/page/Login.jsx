@@ -49,7 +49,7 @@ export default function Login() {
   };
 
   return (
-    <AppProvider>
+   <>
       {error && (
         <Alert
           variant="filled"
@@ -104,7 +104,7 @@ export default function Login() {
             variant="outlined"
             fullWidth
             required
-          />
+            />
 
           <TextField
             name="password"
@@ -142,6 +142,6 @@ export default function Login() {
           Sign up
         </Link>
       </Typography>
-    </AppProvider>
+              </>
   );
 }

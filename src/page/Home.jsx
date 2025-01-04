@@ -1,8 +1,39 @@
 import React, { useEffect } from "react";
-import Button from "../components/Button";
+// import Button from "../components/Button";
 import { useAuth } from "../context/Authcontext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
+// Custom styles
+const useStyles = makeStyles((theme) => ({
+  heroContainer: {
+    backgroundColor: "black",
+    color: "white",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    padding: 10,
+  },
+  heroText: {
+    marginBottom: 20,
+    fontSize: "3rem",
+  },
+  heroImage: {
+    maxWidth: "100%",
+    height: "500px",
+    borderRadius: 20,
+  },
+  heroButton: {
+    marginTop: 5,
+    backgroundColor: "#00B0FF",
+    "&:hover": {
+      backgroundColor: "#007bb2",
+    },
+  },
+}));
 export default function Home() {
   const { currentuser, islogedin } = useAuth();
   const navigate = useNavigate();
@@ -15,28 +46,57 @@ export default function Home() {
   if (!islogedin) {
     return <Navigate to="/" />;
   }
-
+  console.log(currentuser);
+  const classes = useStyles();
   return (
-    <div className=" min-h-[95dvh]  flex flex-col justify-center items-center">
-      <h1 className="text-[1.5rem]  sm:text-3xl text-text font-bold text-center z-10 ">
-        🎶 Welcome to MoodMixer{" "}
-        {currentuser.displayName ? currentuser.displayName : currentuser.email}{" "}
-        ,🎶
-      </h1>
-      <div className="flex flex-col justify-center text-center mt-24 z-10">
-        <h2 className="text-text text-lg text-center font-bold font-serif sm:text-xl -mt-16">
-          Find the perfect playlist for your mood.
-        </h2>
-        <p className="text-secondaryText px-3 mx-auto text-sm sm:text-lg sm:w-[70%] mb-8 mt-8">
-          Whether you're feeling upbeat, relaxed, or nostalgic, MoodMixer
-          curates personalized music recommendations to match your emotions.
-          Simply tell us how you're feeling, and we'll generate a custom
-          playlist just for you!
-        </p>
-      </div>
-      <Link to="/dialog" className="z-10">
-        <Button>Get Started</Button>
-      </Link>
-    </div>
+    <Box className={classes.heroContainer}>
+      <Container>
+        <Grid container spacing={4} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h2"
+              component="h1"
+              className={classes.heroText}
+            >
+              Welcome to MoodMix app
+              <span style={{ color: "#00B0FF" }}>
+                {" "}
+                {currentuser.displayName
+                  ? currentuser.displayName.toUpperCase().split(" ")[0]
+                  : currentuser.email}{" "}
+              </span>
+            </Typography>
+            <Typography
+              variant="h6"
+              color="textSecondary"
+              sx={{ color: "#E0E0E0" }}
+            >
+              Whether you're feeling upbeat, relaxed, or nostalgic, MoodMixer
+              curates personalized music recommendations to match your emotions.
+              Simply tell us how you're feeling, and we'll generate a custom
+              playlist just for you!
+            </Typography>
+            <Link to="/dialog">
+              <Button
+                variant="contained"
+                color="white"
+                size="large"
+                className={classes.heroButton}
+              >
+                Get Started
+              </Button>
+            </Link>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <img
+              src="hero.jpg"
+              alt="Hero Image"
+              className={classes.heroImage}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 }
