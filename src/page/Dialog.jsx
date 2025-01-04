@@ -3,7 +3,7 @@ import { useMusic } from "../context/musiccontext";
 import Button from "../components/Button";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
-
+import { Grid, Box, Typography, Container } from "@mui/material";
 export default function Dialog() {
   const { handlegenerate } = useMusic();
   const { islogedin, currentuser } = useAuth();
@@ -18,69 +18,263 @@ export default function Dialog() {
     return <Navigate to="/" />;
   }
   return (
-    <div className="  h-[100dvh]  sm:h-[100dvh] w-full flex flex-col items-center justify-between">
-      <h1 className="text-text text-center font-bold text-xl sm:text-2xl p-5  whitespace-nowrap">
-        How do you feel
+    <div className="h-dvh">
+      <Typography
+        variant="h5"
+        sx={{ mt: 3, fontWeight: "bold" }}
+        color="#E0E0E0"
+        component="h1"
+        textAlign="center"
+      >
+        {" "}
+        How do you feel {""}
         {currentuser.displayName
-          ? currentuser.displayName
+          ? currentuser.displayName.toUpperCase().split(" ")[0]
           : currentuser.email}{" "}
         😀
-      </h1>
-      <div className="h-[85%] w-full sm:place-items-center grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-y-5 gap-5 px-5 sm:mx-5  text-text ">
-        <div className="custom-card" onClick={() => handlegenerate("pop")}>
-          <div className="emoji">😊🎉</div>
-          <div className="label">Happy</div>
-        </div>
-        <div className="custom-card" onClick={() => handlegenerate("slow")}>
-          <div className="emoji">😢💔</div>
-          <div className="label">Sad</div>
-        </div>
-        <div className="custom-card" onClick={() => handlegenerate("rock")}>
-          <div className="emoji"> ⚡🎶🏋️‍♂️</div>
-          <div className="label">Energetic</div>
-        </div>
-        <div className="custom-card" onClick={() => handlegenerate("chill")}>
-          <div className="emoji"> 😌🌿🛋️</div>
-          <div className="label">Relax</div>
-        </div>
-        <div className="custom-card" onClick={() => handlegenerate("R&B")}>
-          <div className="emoji ">❤️🌹💑</div>
-          <div className="label">Romantic</div>
-        </div>
-        <div
-          className="custom-card"
-          onClick={() => handlegenerate("heavy metal")}
-        >
-          <div className="emoji">😡🔥🤘</div>
-          <div className="label">Angry</div>
-        </div>
-        <div
-          className="custom-card"
-          onClick={() => handlegenerate("classical")}
-        >
-          <div className="emoji">🧘‍♂️💻📚</div>
-          <div className="label">Focused</div>
-        </div>
-        <div className="custom-card" onClick={() => handlegenerate("Lo-Fi")}>
-          <div className="emoji"> 🕰️📼🎸</div>
-          <div className="label">Nostalgic</div>
-        </div>
-      </div>
-      <div className="flex flex-col mx-4 sm:mb-20 sm:w-[75%] w-full sm:mt-14 mt-3 ">
-        <h2 className="text-text ml-8 mb-2 font-bold text-lg">
-          how do you feel
-        </h2>
-        <div className="flex  justify-evenly items-center sm:w-[80%] w-[85%]">
-          <textarea
-            type="text"
-            className=" bg-gray-900 w-[85%] text-text mx-5 px-3 py-2 rounded-lg resize-none focus:outline-none"
-            placeholder="write how do you feel we will generate a playlist for you"
-          />
-          <div>
-            <Button>send </Button>
-          </div>
-        </div>
-      </div>
+      </Typography>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                😊🎉
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Happy
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 2 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                😢💔
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Sad
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 3 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                ⚡🏋️‍♂️
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Energetic
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 4 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                😌🛋️
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Relax
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 5 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                ❤️💑
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Romantic
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 6 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                😡🔥
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Angry
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 7 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                💻📚
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Focused
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Item 8 */}
+          <Grid item xs={6} sm={6} md={3}>
+            <Box
+              sx={{
+                p: 3,
+                border: "1px solid",
+                borderColor: "grey.300",
+                borderRadius: 2,
+                textAlign: "center",
+                cursor: "pointer",
+              }}
+            >
+              <Typography variant="h3" gutterBottom>
+                🕰️📼
+              </Typography>
+              <Typography
+                variant="body2"
+                color="#E0E0E0"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.2rem",
+
+                  ":hover": { color: "#A0A0A0" },
+                }}
+              >
+                Nostalgic
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }

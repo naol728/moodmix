@@ -22,6 +22,9 @@ export default function Signup() {
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      setTimeout(() => {
+        setError("");
+      }, 4000);
       setIsLoading(false);
       return;
     }
@@ -33,6 +36,9 @@ export default function Signup() {
     } catch (error) {
       setError(error.message);
       setIsLoading(false);
+      setTimeout(() => {
+        setError("");
+      }, 4000);
     }
   };
   if (islogedin) {
@@ -40,7 +46,22 @@ export default function Signup() {
   }
   return (
     <div>
-      <AppProvider>
+  
+        {error && (
+          <Alert
+            variant="filled"
+            severity="error"
+            sx={{
+              mr: 2,
+              width: "20%",
+              position: "absolute",
+              top: 80,
+              right: 10,
+            }}
+          >
+            {error}
+          </Alert>
+        )}
         <Container maxWidth="xs">
           <Box
             component="form"
@@ -122,7 +143,7 @@ export default function Signup() {
             Sign in
           </Link>
         </Typography>
-      </AppProvider>
+  
     </div>
   );
 }
