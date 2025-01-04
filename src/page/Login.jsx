@@ -13,12 +13,14 @@ import {
   dosigninwithemailandpassword,
   dosignwithgoogle,
 } from "../firebase/Auth";
+import { useAuth } from "../context/Authcontext";
 
 export default function Login() {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { islogedin } = useAuth();
   const navigate = useNavigate();
   const signinwithgoogle = async () => {
     try {
@@ -47,9 +49,11 @@ export default function Login() {
       setIsLoading(false);
     }
   };
-
+  if (islogedin) {
+    return <Navigate to="/home" />;
+  }
   return (
-   <>
+    <>
       {error && (
         <Alert
           variant="filled"
@@ -104,7 +108,7 @@ export default function Login() {
             variant="outlined"
             fullWidth
             required
-            />
+          />
 
           <TextField
             name="password"
@@ -142,6 +146,6 @@ export default function Login() {
           Sign up
         </Link>
       </Typography>
-              </>
+    </>
   );
 }

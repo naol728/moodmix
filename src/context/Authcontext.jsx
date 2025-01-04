@@ -27,7 +27,7 @@ export default function AuthProvider({ children }) {
     islogedin,
     loading,
   };
- 
+
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 export const useAuth = () => {

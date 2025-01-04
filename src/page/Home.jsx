@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-// import Button from "../components/Button";
 import { useAuth } from "../context/Authcontext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-// Custom styles
 const useStyles = makeStyles((theme) => ({
   heroContainer: {
     backgroundColor: "black",
@@ -36,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Home() {
   const { currentuser, islogedin } = useAuth();
+  const classes = useStyles();
   const navigate = useNavigate();
   useEffect(() => {
     if (!islogedin) {
@@ -46,8 +45,7 @@ export default function Home() {
   if (!islogedin) {
     return <Navigate to="/" />;
   }
-  console.log(currentuser);
-  const classes = useStyles();
+
   return (
     <Box className={classes.heroContainer}>
       <Container>
@@ -81,6 +79,7 @@ export default function Home() {
                 variant="contained"
                 color="white"
                 size="large"
+                sx={{ backgroundColor: "#00B0FF", color: "white" }}
                 className={classes.heroButton}
               >
                 Get Started
