@@ -22,14 +22,7 @@ export default function Navbar() {
             <Link to="/about">About</Link>
           </div>
         ) : (
-          <div className="flex space-x-4 font-semibold text-text   ">
-            <Link to="/" className="hover:underline">
-              Sign in
-            </Link>{" "}
-            <Link to="/regester" className="hover:underline">
-              Sign Up
-            </Link>
-          </div>
+          <div className="flex space-x-4 font-semibold text-text   "></div>
         )}
 
         <div className="flex justify-center space-x-5  ">
