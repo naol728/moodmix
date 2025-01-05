@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export default function Applayout() {
   return (
-    <div className="">
+    <div className="bg-background">
       <div>
         <Navbar />
       </div>
