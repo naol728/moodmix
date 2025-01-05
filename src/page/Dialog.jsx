@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import { Grid, Box, Typography, Container, TextField } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
-import { WobbleCard } from "../ui/wobble-card";
+
 export default function Dialog() {
   const { handlegenerate } = useMusic();
   const { islogedin, currentuser } = useAuth();
@@ -48,6 +48,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("dance")}
             >
               <Typography variant="h3" gutterBottom>
@@ -79,6 +80,7 @@ export default function Dialog() {
                 backgroundColor: "#00008B",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("acoustic")}
             >
               <Typography variant="h3" gutterBottom>
@@ -111,6 +113,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("rock")}
             >
               <Typography variant="h3" gutterBottom>
@@ -143,6 +146,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("chill")}
             >
               <Typography variant="h3" gutterBottom>
@@ -175,6 +179,7 @@ export default function Dialog() {
                 backgroundColor: "#FFB6C1",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("R&B")}
             >
               <Typography variant="h3" gutterBottom>
@@ -207,6 +212,7 @@ export default function Dialog() {
                 textAlign: "center",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("heavy metal")}
             >
               <Typography variant="h3" gutterBottom>
@@ -239,6 +245,7 @@ export default function Dialog() {
                 backgroundColor: "#0000CD",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("classical")}
             >
               <Typography variant="h3" gutterBottom>
@@ -271,6 +278,7 @@ export default function Dialog() {
                 backgroundColor: "#704214",
                 cursor: "pointer",
               }}
+              className="transition-all  transform duration-300 hover:scale-110"
               onClick={() => handlegenerate("folk")}
             >
               <Typography variant="h3" gutterBottom>

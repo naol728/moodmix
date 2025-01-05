@@ -10,7 +10,10 @@ export default function Profile() {
     <Container maxWidth="lg">
       <Box className="flex flex-col items-center space-y-8 justify-center   px-2 py-10 rounded-lg">
         <LampContainer>
-          <Avatar src="hero.jpg" sx={{ width: "200px", height: "200px" }} />
+          <Avatar
+            src={currentuser.photoURL}
+            sx={{ width: "200px", height: "200px" }}
+          />
           <Typography
             sx={{
               fontSize: "1.5rem",
