@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import { Grid, Box, Typography, Container, TextField } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
+import { WobbleCard } from "../ui/wobble-card";
 export default function Dialog() {
   const { handlegenerate } = useMusic();
   const { islogedin, currentuser } = useAuth();
@@ -43,6 +44,7 @@ export default function Dialog() {
                 border: "1px solid",
                 borderColor: "grey.300",
                 borderRadius: 2,
+                backgroundColor: "#FFD700",
                 textAlign: "center",
                 cursor: "pointer",
               }}
@@ -53,7 +55,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#444444"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -65,7 +67,6 @@ export default function Dialog() {
               </Typography>
             </Box>
           </Grid>
-
           {/* Item 2 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
@@ -75,6 +76,7 @@ export default function Dialog() {
                 borderColor: "grey.300",
                 borderRadius: 2,
                 textAlign: "center",
+                backgroundColor: "#00008B",
                 cursor: "pointer",
               }}
               onClick={() => handlegenerate("acoustic")}
@@ -84,7 +86,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#F0F0F0"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -105,6 +107,7 @@ export default function Dialog() {
                 border: "1px solid",
                 borderColor: "grey.300",
                 borderRadius: 2,
+                backgroundColor: "#FF0000",
                 textAlign: "center",
                 cursor: "pointer",
               }}
@@ -115,7 +118,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#F0F0F0"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -136,6 +139,7 @@ export default function Dialog() {
                 border: "1px solid",
                 borderColor: "grey.300",
                 borderRadius: 2,
+                backgroundColor: "#ADD8E6",
                 textAlign: "center",
                 cursor: "pointer",
               }}
@@ -146,7 +150,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#333333"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -168,6 +172,7 @@ export default function Dialog() {
                 borderColor: "grey.300",
                 borderRadius: 2,
                 textAlign: "center",
+                backgroundColor: "#FFB6C1",
                 cursor: "pointer",
               }}
               onClick={() => handlegenerate("R&B")}
@@ -177,7 +182,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#444444"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -198,6 +203,7 @@ export default function Dialog() {
                 border: "1px solid",
                 borderColor: "grey.300",
                 borderRadius: 2,
+                backgroundColor: "#000000",
                 textAlign: "center",
                 cursor: "pointer",
               }}
@@ -208,7 +214,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#EEEEEE"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -230,6 +236,7 @@ export default function Dialog() {
                 borderColor: "grey.300",
                 borderRadius: 2,
                 textAlign: "center",
+                backgroundColor: "#0000CD",
                 cursor: "pointer",
               }}
               onClick={() => handlegenerate("classical")}
@@ -239,7 +246,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="#F0F0F0"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
@@ -261,6 +268,7 @@ export default function Dialog() {
                 borderColor: "grey.300",
                 borderRadius: 2,
                 textAlign: "center",
+                backgroundColor: "#704214",
                 cursor: "pointer",
               }}
               onClick={() => handlegenerate("folk")}
@@ -270,7 +278,7 @@ export default function Dialog() {
               </Typography>
               <Typography
                 variant="body2"
-                color="#E0E0E0"
+                color="##F0F0F0"
                 sx={{
                   fontWeight: "bold",
                   fontSize: "1.2rem",
