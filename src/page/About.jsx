@@ -1,8 +1,40 @@
 import { Avatar, Box, Container, Typography } from "@mui/material";
 import React from "react";
 import { TracingBeam } from "../ui/tracing-beam";
+import { AnimatedTooltip } from "../ui/animated-tooltip";
 
 export default function About() {
+  const people = [
+    {
+      id: 1,
+      name: "Naol Meseret",
+      designation: "Web Developer",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4E03AQHMnvvBrGv2_Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1732365765826?e=1741824000&v=beta&t=x7Q4DvRGzihmHP_zqHFQYWtupefIU2mqaWzoXoNK1Io",
+    },
+    {
+      id: 2,
+      name: "Abdelah Neseredin",
+      designation: "Mobile App developer",
+      image: "https://avatars.githubusercontent.com/u/119611471?v=4",
+    },
+    {
+      id: 3,
+      name: "Fuad Seid",
+      designation: "Mobile App developer",
+      image: "https://avatars.githubusercontent.com/u/162048442?v=4",
+    },
+  ];
+  useEffect(() => {
+    if (!islogedin) {
+      navigate("/");
+    }
+  }, [islogedin, navigate]);
+
+  if (!islogedin) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <div>
       <TracingBeam className="px-6">
@@ -103,18 +135,7 @@ export default function About() {
               music on everyday life. We're dedicated to bringing joy, comfort,
               and energy to your life through the art of sound.
               <div className="text-center my-10 flex items-center justify-center">
-                <Avatar
-                  src="https://avatars.githubusercontent.com/u/143317388?s=400&u=fa1626c14a9dab6d23567e65f571b388c21335c9&v=4"
-                  sx={{ width: 56, height: 56 }}
-                />
-                <Avatar
-                  src="https://avatars.githubusercontent.com/u/119611471?v=4"
-                  sx={{ width: 56, height: 56 }}
-                />
-                <Avatar
-                  src="https://avatars.githubusercontent.com/u/162048442?v=4"
-                  sx={{ width: 56, height: 56 }}
-                />
+                <AnimatedTooltip items={people} />
               </div>
             </Typography>
           </Box>
