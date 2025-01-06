@@ -1,9 +1,12 @@
 import { Avatar, Box, Container, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { TracingBeam } from "../ui/tracing-beam";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { useAuth } from "../context/Authcontext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function About() {
+  const { islogedin } = useAuth();
   const people = [
     {
       id: 1,
@@ -25,6 +28,7 @@ export default function About() {
       image: "https://avatars.githubusercontent.com/u/162048442?v=4",
     },
   ];
+  const navigate = useNavigate();
   useEffect(() => {
     if (!islogedin) {
       navigate("/");
@@ -134,18 +138,17 @@ export default function About() {
               enthusiasts, and designers who understand the profound impact of
               music on everyday life. We're dedicated to bringing joy, comfort,
               and energy to your life through the art of sound.
-              <div className="text-center my-10 flex items-center justify-center">
+              <div className="text-center  my-10 flex items-center justify-center">
                 <AnimatedTooltip items={people} />
               </div>
             </Typography>
           </Box>
-          <Box className="flex justify-center items-center font-mono font-lg mb-20">
-            <Typography>Contact us{"    "}</Typography>
-            <Typography>
-              <a href="mailto:naolmeseret22@gmail.com">
-                naolmeserert22@gmail.com{" "}
-              </a>
-            </Typography>
+          <Box className="flex justify-center items-center space-x-3  font-mono font-lg mb-20">
+            <Typography sx={{fontSize:"1.5rem"}}>Contact us{"    "}</Typography>
+
+            <a href="mailto:naolmeseret22@gmail.com" className=" text-xl font-bold text-accent">
+              naolmeserert22@gmail.com{" "}
+            </a>
           </Box>
         </Container>
       </TracingBeam>
