@@ -10,7 +10,7 @@ export const TracingBeam = ({ children, className }) => {
   });
 
   const contentRef = useRef(null);
-  const [svgHeight, setSvgHeight] = useState(0);
+  const [svgHeight, setSvgHeight] = useState(200);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -36,7 +36,7 @@ export const TracingBeam = ({ children, className }) => {
   return (
     <motion.div
       ref={ref}
-      className={cn("relative w-full max-w-4xl mx-auto h-full", className)}
+      className={cn("relative w-full max-w-4xl mx-auto h-dvh", className)}
     >
       <div className="absolute -left-4 md:-left-20 top-3">
         <motion.div
@@ -97,7 +97,7 @@ export const TracingBeam = ({ children, className }) => {
             <motion.linearGradient
               id="gradient"
               gradientUnits="userSpaceOnUse"
-              x1="0"
+              x1="30"
               x2="0"
               // set y1 for gradient
               y1={y1}

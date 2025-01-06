@@ -39,6 +39,7 @@ export default function Musiccontext({ children }) {
     setGeneratedmusic(response.data.tracks.items);
     navigate("/playlist");
   };
+  
 
   return (
     <Music.Provider

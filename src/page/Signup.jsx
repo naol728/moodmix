@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { docreateuserwithemailandpassword } from "../firebase/Auth";
 import { Link, Navigate } from "react-router-dom";
-import { SignInPage } from "@toolpad/core/SignInPage";
-import { AppProvider } from "@toolpad/core/AppProvider";
 import { useAuth } from "../context/Authcontext";
 import { Box, TextField, Button, Typography, Container } from "@mui/material";
-import useStyles from "./formstyle";
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +10,6 @@ export default function Signup() {
   const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [isregester, setIsregester] = useState(false);
-  const styles = useStyles();
   const { islogedin } = useAuth();
   const onsubmit = async (e) => {
     e.preventDefault();

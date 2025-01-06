@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/Authcontext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Home() {
   const { currentuser, islogedin } = useAuth();
+  const images = ["hero.jpg", "hero2.jpg", "hero3.jpg","hero5.jpg","hero6.jpg","hero7.jpg"];
+  const [currentImage, setCurrentImage] = useState(images[0]);
   const classes = useStyles();
   const navigate = useNavigate();
   useEffect(() => {
@@ -41,7 +43,17 @@ export default function Home() {
       navigate("/");
     }
   }, [islogedin, navigate]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => {
+        const currentIndex = images.indexOf(prevImage);
+        const nextIndex = (currentIndex + 1) % images.length;
+        return images[nextIndex];
+      });
+    }, 5000);
 
+    return () => clearInterval(interval);
+  }, [images]);
   if (!islogedin) {
     return <Navigate to="/" />;
   }
@@ -89,8 +101,8 @@ export default function Home() {
 
           <Grid item xs={12} md={6}>
             <img
-              src="hero.jpg"
-              alt="Hero Image"
+              src={currentImage}
+              alt="hero image"
               className={classes.heroImage}
             />
           </Grid>
