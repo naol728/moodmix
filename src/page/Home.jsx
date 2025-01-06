@@ -3,7 +3,6 @@ import { useAuth } from "../context/Authcontext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
 const useStyles = makeStyles((theme) => ({
   heroContainer: {
     backgroundColor: "black",
@@ -32,7 +31,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default function Home() {
+
+export  function Home() {
+  
   const { currentuser, islogedin } = useAuth();
   const images = ["hero.jpg", "hero2.jpg", "hero3.jpg","hero5.jpg","hero6.jpg","hero7.jpg"];
   const [currentImage, setCurrentImage] = useState(images[0]);
