@@ -50,9 +50,9 @@ export default function Playlist() {
   return (
     <div style={{ backgroundColor: bgcolor }}>
       <h1 className="text-center text-black text-2xl font-bold pt-5 ">
-        🥳Enjoy Music 🥳
+        🥳Enjoy Musics🥳
       </h1>
-      <div className="mt-20">
+      <div className="mt-20 mb-0">
         {generatedmusic.map((item, index) => {
           return (
             <div
@@ -60,11 +60,11 @@ export default function Playlist() {
               className="flex justify-center -mt-10 items-center w-full"
             >
               {" "}
-              <div className=" sm:w-[55%]">
+              <div className=" sm:w-[55%] m-0 ">
                 <iframe
                   src={`https://open.spotify.com/embed/track/${item.id}?utm_source=generator`}
                   allow="encrypted-media"
-                  className="w-full sm:w-[100%]  px-10 -mb-5"
+                  className="w-full sm:w-[100%]  px-10 -mb-6"
                   title="Spotify Player"
                 />{" "}
               </div>

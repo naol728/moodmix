@@ -3,6 +3,7 @@ import { useAuth } from "../context/Authcontext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 const useStyles = makeStyles((theme) => ({
   heroContainer: {
     backgroundColor: "black",
@@ -70,11 +71,12 @@ export  function Home() {
               className={classes.heroText}
             >
               Welcome to MoodMix app
-              <span style={{ color: "#00B0FF" }}>
+              <span style={{ color: "#00B0FF",textAlign:"center" }}>
                 {" "}
-                {currentuser.displayName
+                <TypewriterEffectSmooth words={[{text: currentuser.displayName
                   ? currentuser.displayName.toUpperCase().split(" ")[0]
-                  : currentuser.email}{" "}
+                  : currentuser.email}]} />
+               
               </span>
             </Typography>
             <Typography
