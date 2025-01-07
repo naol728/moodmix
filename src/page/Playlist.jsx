@@ -60,7 +60,7 @@ export default function Playlist() {
               className="flex justify-center -mt-10 items-center w-full"
             >
               {" "}
-              <div className=" sm:w-[55%] m-0 ">
+              <div className=" sm:w-[60%] m-0 ">
                 <iframe
                   src={`https://open.spotify.com/embed/track/${item.id}?utm_source=generator`}
                   allow="encrypted-media"
