@@ -33,10 +33,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export  function Home() {
-  
+export function Home() {
   const { currentuser, islogedin } = useAuth();
-  const images = ["hero.jpg", "hero2.jpg", "hero3.jpg","hero5.jpg","hero6.jpg","hero7.jpg"];
+  const images = [
+    "hero2.jpg",
+    "hero3.jpg",
+
+    "hero5.jpg",
+    "hero6.jpg",
+    "hero7.jpg",
+    "hero.jpg",
+  ];
   const [currentImage, setCurrentImage] = useState(images[0]);
   const classes = useStyles();
   const navigate = useNavigate();
@@ -71,12 +78,17 @@ export  function Home() {
               className={classes.heroText}
             >
               Welcome to MoodMix app
-              <span style={{ color: "#00B0FF",textAlign:"center" }}>
+              <span style={{ color: "#00B0FF", textAlign: "center" }}>
                 {" "}
-                <TypewriterEffectSmooth words={[{text: currentuser.displayName
-                  ? currentuser.displayName.toUpperCase().split(" ")[0]
-                  : currentuser.email}]} />
-               
+                <TypewriterEffectSmooth
+                  words={[
+                    {
+                      text: currentuser.displayName
+                        ? currentuser.displayName.toUpperCase().split(" ")[0]
+                        : currentuser.email,
+                    },
+                  ]}
+                />
               </span>
             </Typography>
             <Typography

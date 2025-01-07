@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMusic } from "../context/musiccontext";
 import Button from "@mui/material/Button";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -7,9 +7,40 @@ import { Grid, Box, Typography, Container, TextField } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
 
 export default function Dialog() {
+  const [usermood, setUsermood] = useState("");
   const { handlegenerate } = useMusic();
   const { islogedin, currentuser } = useAuth();
   const navigate = useNavigate();
+
+  const url = "https://copilot5.p.rapidapi.com/copilot";
+  const options = {
+    method: "POST",
+    headers: {
+      "x-rapidapi-key": "2d62610460msha2933d07910fc7dp19699ejsn186fc15f58b7",
+      "x-rapidapi-host": "copilot5.p.rapidapi.com",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message: `The user is feeling: '${usermood}' Based on the available Spotify categories, suggest the best match for their mood from the following options: Pop, Slow, Upbeat Pop, Dance, Blues, Acoustic, Electronic, Rock, Hip-hop, Chill, Ambient, Lofi-beat, R&B, Classical, Heavy Metal. Provide only one category that best matches this mood.dont give me an explanation only the music catagory`,
+      conversation_id: null,
+      tone: "BALANCED",
+      markdown: false,
+      photo_url: null,
+    }),
+  };
+
+  async function fectchdata() {
+    console.log("fetching musics based on your prompot ")
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      console.log(result);
+      handlegenerate(result.data.message);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     if (!islogedin) {
       navigate("/");
@@ -180,7 +211,7 @@ export default function Dialog() {
                 cursor: "pointer",
               }}
               className="transition-all  transform duration-300 hover:scale-110"
-              onClick={() => handlegenerate("R&B")}
+              onClick={() =>handlegenerate("R&B")}
             >
               <Typography variant="h3" gutterBottom>
                 ❤️💑
@@ -316,10 +347,13 @@ export default function Dialog() {
         </Typography>
         <Box className="flex justify-evenly items-center mt-2">
           <TextField
+            value={usermood}
+            onChange={(e) => setUsermood(e.target.value)}
             sx={{ width: "85%" }}
             placeholder="tell us how do you feel we will generate you best music for your feeling"
           />{" "}
           <Button
+            onClick={fectchdata}
             variant="contained"
             sx={{ backgroundColor: "#00B0FF", color: "#E0E0E0" }}
             endIcon={<IoMdSend />}

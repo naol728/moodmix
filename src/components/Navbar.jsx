@@ -11,7 +11,6 @@ export default function Navbar() {
     setShow(!show);
   }
   const { islogedin, currentuser } = useAuth();
-  console.log(currentuser);
   return (
     <div className="   ml-1 mr-1   px-2 py-4  sm:px-3 sm:pt-5 shadow-xl text-text  ">
       <div className="flex justify-between">
