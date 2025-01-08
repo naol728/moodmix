@@ -5,10 +5,11 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import { Grid, Box, Typography, Container, TextField } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
+import Loading from "../components/Loading";
 
 export default function Dialog() {
   const [usermood, setUsermood] = useState("");
-  const { handlegenerate } = useMusic();
+  const { handlegenerate, isloading,setIsloading } = useMusic();
   const { islogedin, currentuser } = useAuth();
   const navigate = useNavigate();
 
@@ -30,14 +31,17 @@ export default function Dialog() {
   };
 
   async function fectchdata() {
-    console.log("fetching musics based on your prompot ")
+    console.log("fetching musics based on your prompot ");
     try {
+      setIsloading(true)
       const response = await fetch(url, options);
       const result = await response.json();
       console.log(result);
       handlegenerate(result.data.message);
+      setIsloading(false)
     } catch (error) {
       console.error(error);
+      setIsloading(false)
     }
   }
 
@@ -52,6 +56,7 @@ export default function Dialog() {
   }
   return (
     <div>
+      {isloading ? <Loading /> : <></>}
       <Typography
         variant="h5"
         sx={{ mt: 3, fontWeight: "bold" }}
@@ -211,7 +216,7 @@ export default function Dialog() {
                 cursor: "pointer",
               }}
               className="transition-all  transform duration-300 hover:scale-110"
-              onClick={() =>handlegenerate("R&B")}
+              onClick={() => handlegenerate("R&B")}
             >
               <Typography variant="h3" gutterBottom>
                 ❤️💑
