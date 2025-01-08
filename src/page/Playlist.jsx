@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useMusic } from "../context/musiccontext";
+import { useMusic } from "../context/Musiccontext";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { MdFavorite } from "react-icons/md";

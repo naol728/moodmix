@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useMusic } from "../context/musiccontext";
+import { useMusic } from "../context/Musiccontext";
 import Button from "@mui/material/Button";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
