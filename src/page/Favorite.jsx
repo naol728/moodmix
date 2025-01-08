@@ -28,22 +28,22 @@ export default function Favorite() {
     "#33FF99",
     "#FF5733",
   ];
-  
+
   const [bgcolor, setBgcolor] = useState(getRandomColor(bgcolors));
-  
+
   // const navigate = useNavigate(getRandomColor(bgcolors));
-  
-    function getRandomColor(colors) {
-      const randomIndex = Math.floor(Math.random() * colors.length);
-      return colors[randomIndex];
-    }
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setBgcolor(getRandomColor(bgcolors));
-      }, 5000);
-  
-      return () => clearInterval(interval);
-    }, [bgcolors]);
+
+  function getRandomColor(colors) {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgcolor(getRandomColor(bgcolors));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [bgcolors]);
   const navigate = useNavigate();
   useEffect(() => {
     if (!islogedin) {
@@ -55,13 +55,13 @@ export default function Favorite() {
     return <Navigate to="/" />;
   }
   return (
-    <div style={{backgroundColor:bgcolor,height:""}}>
-      <div className="text-center text-black text-xl sm:text-2xl font-extrabold " >
+    <div style={favorite.length == 0 ? {} : { backgroundColor: bgcolor } } className="min-h-dvh" >
+      <div className="text-center  text-xl min-h-min sm:text-2xl font-extrabold ">
         musics that you add to your favorite😍
       </div>
       <div className="w-[60%]  mx-auto mt-20">
         {favorite.length === 0 && (
-          <div className="text-center text-black text-lg sm:text-xl font-bold ">
+          <div className="text-center text-lg sm:text-xl font-bold ">
             No favorite music🥲please add and come back
           </div>
         )}

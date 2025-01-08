@@ -17,13 +17,13 @@ export default function About() {
     },
     {
       id: 2,
-      name: "Abdelah Neseredin",
+      name: "Fuad seid",
       designation: "Mobile App developer",
       image: "https://avatars.githubusercontent.com/u/119611471?v=4",
     },
     {
       id: 3,
-      name: "Fuad Seid",
+      name: "Abdelah Neseredin",
       designation: "Mobile App developer",
       image: "https://avatars.githubusercontent.com/u/162048442?v=4",
     },
@@ -144,9 +144,14 @@ export default function About() {
             </Typography>
           </Box>
           <Box className="flex justify-center items-center space-x-3  font-mono font-lg mb-20">
-            <Typography sx={{fontSize:"0.5rem"}}>Contact us{"    "}</Typography>
+            <Typography sx={{ fontSize: "0.5rem" }}>
+              Contact us{"    "}
+            </Typography>
 
-            <a href="mailto:naolmeseret22@gmail.com" className=" text-md font-bold text-accent">
+            <a
+              href="mailto:naolmeseret22@gmail.com"
+              className=" text-md font-bold text-accent"
+            >
               naolmeserert22@gmail.com{" "}
             </a>
           </Box>

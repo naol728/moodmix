@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function Home() {
+export function Homepage() {
   const { currentuser, islogedin } = useAuth();
   const images = [
     "hero2.jpg",

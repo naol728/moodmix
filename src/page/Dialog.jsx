@@ -9,7 +9,7 @@ import Loading from "../components/Loading";
 
 export default function Dialog() {
   const [usermood, setUsermood] = useState("");
-  const { handlegenerate, isloading,setIsloading } = useMusic();
+  const { handlegenerate, isloading, setIsloading } = useMusic();
   const { islogedin, currentuser } = useAuth();
   const navigate = useNavigate();
 
@@ -33,15 +33,15 @@ export default function Dialog() {
   async function fectchdata() {
     console.log("fetching musics based on your prompot ");
     try {
-      setIsloading(true)
+      setIsloading(true);
       const response = await fetch(url, options);
       const result = await response.json();
       console.log(result);
       handlegenerate(result.data.message);
-      setIsloading(false)
+      setIsloading(false);
     } catch (error) {
       console.error(error);
-      setIsloading(false)
+      setIsloading(false);
     }
   }
 
@@ -59,7 +59,7 @@ export default function Dialog() {
       {isloading ? <Loading /> : <></>}
       <Typography
         variant="h5"
-        sx={{ mt: 3, fontWeight: "bold" }}
+        className=" mt-0 sm:mt-3 font-bold "
         color="#E0E0E0"
         component="h1"
         textAlign="center"
@@ -75,19 +75,10 @@ export default function Dialog() {
         <Grid container spacing={4}>
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                backgroundColor: "#FFD700",
-                textAlign: "center",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#FFD700]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("dance")}
             >
-              <Typography variant="h3" gutterBottom>
+              <Typography variant="h3" className="text-sm" gutterBottom>
                 😊🎉
               </Typography>
               <Typography
@@ -107,16 +98,7 @@ export default function Dialog() {
           {/* Item 2 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                textAlign: "center",
-                backgroundColor: "#00008B",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#00008B]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("acoustic")}
             >
               <Typography variant="h3" gutterBottom>
@@ -140,16 +122,7 @@ export default function Dialog() {
           {/* Item 3 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                backgroundColor: "#FF0000",
-                textAlign: "center",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#FF0000]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("rock")}
             >
               <Typography variant="h3" gutterBottom>
@@ -173,16 +146,7 @@ export default function Dialog() {
           {/* Item 4 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                backgroundColor: "#ADD8E6",
-                textAlign: "center",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#ADD8E6]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("chill")}
             >
               <Typography variant="h3" gutterBottom>
@@ -206,16 +170,7 @@ export default function Dialog() {
           {/* Item 5 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                textAlign: "center",
-                backgroundColor: "#FFB6C1",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#FFB6C1]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("R&B")}
             >
               <Typography variant="h3" gutterBottom>
@@ -239,16 +194,7 @@ export default function Dialog() {
           {/* Item 6 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                backgroundColor: "#000000",
-                textAlign: "center",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#000000]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("heavy metal")}
             >
               <Typography variant="h3" gutterBottom>
@@ -272,16 +218,7 @@ export default function Dialog() {
           {/* Item 7 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                textAlign: "center",
-                backgroundColor: "#0000CD",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#0000CD]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("classical")}
             >
               <Typography variant="h3" gutterBottom>
@@ -305,16 +242,7 @@ export default function Dialog() {
           {/* Item 8 */}
           <Grid item xs={6} sm={6} md={3}>
             <Box
-              sx={{
-                p: 3,
-                border: "1px solid",
-                borderColor: "grey.300",
-                borderRadius: 2,
-                textAlign: "center",
-                backgroundColor: "#704214",
-                cursor: "pointer",
-              }}
-              className="transition-all  transform duration-300 hover:scale-110"
+              className=" py-2 cursor-pointer bg-[#704214]  border-gray-200   transition-all  transform duration-300 hover:scale-110 text-center rounded-lg border-solid border-2 sm:p-6 "
               onClick={() => handlegenerate("folk")}
             >
               <Typography variant="h3" gutterBottom>
@@ -339,12 +267,7 @@ export default function Dialog() {
 
       <Container maxWidth="lg" sx={{ width: "100%", mb: 3 }}>
         <Typography
-          sx={{
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            borderRadius: 5,
-            marginLeft: 3,
-          }}
+          className=" pl-4 font-bold sm:text-xl sm:pl-7"
           color="#00B0FF"
           component="h1"
         >
@@ -354,7 +277,7 @@ export default function Dialog() {
           <TextField
             value={usermood}
             onChange={(e) => setUsermood(e.target.value)}
-            sx={{ width: "85%" }}
+            className="text-base w-[70%] sm:w-[85%]"
             placeholder="tell us how do you feel we will generate you best music for your feeling"
           />{" "}
           <Button
