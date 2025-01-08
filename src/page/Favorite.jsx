@@ -56,12 +56,12 @@ export default function Favorite() {
   }
   return (
     <div style={{backgroundColor:bgcolor,height:""}}>
-      <div className="text-center text-black text-2xl font-extrabold " >
+      <div className="text-center text-black text-xl sm:text-2xl font-extrabold " >
         musics that you add to your favorite😍
       </div>
       <div className="w-[60%]  mx-auto mt-20">
         {favorite.length === 0 && (
-          <div className="text-center text-black text-2xl font-bold ">
+          <div className="text-center text-black text-lg sm:text-xl font-bold ">
             No favorite music🥲please add and come back
           </div>
         )}
