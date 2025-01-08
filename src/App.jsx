@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Applayout from "./page/Applayout";
-import {Home} from "./Home";
+import {Home} from "./page/Home";
 import Dialog from "./page/Dialog";
 import Playlist from "./page/Playlist";
 import About from "./page/About";
-import Musiccontext from "./context/musiccontext";
+import Musiccontext from "./context/Musiccontext";
 import Favorite from "./page/Favorite";
 import Login from "./page/Login";
 import Signup from "./page/Signup";
