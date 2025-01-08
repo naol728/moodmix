@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Applayout from "./page/Applayout";
-import {Home} from "./page/Home";
+import { Homepage } from "./page/Home";
 import Dialog from "./page/Dialog";
 import Playlist from "./page/Playlist";
 import About from "./page/About";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/home",
-        element: <Home />,
+        element: <Homepage />,
       },
       {
         path: "/dialog",

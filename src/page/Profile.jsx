@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../context/Authcontext";
 import { Avatar, Box, Container, Typography } from "@mui/material";
 import { LampContainer } from "../ui/Lampeffect";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Profile() {
-  const { currentuser } = useAuth();
+  const { currentuser, islogedin } = useAuth();
   console.log(currentuser);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!islogedin) {
+      navigate("/");
+    }
+  }, [islogedin, navigate]);
+
+  if (!islogedin) {
+    return <Navigate to="/" />;
+  }
   return (
     <Container maxWidth="lg">
       <Box className="flex flex-col items-center space-y-8 justify-center   px-2 py-10 rounded-lg">
@@ -33,7 +45,7 @@ export default function Profile() {
               fontWeight: "500",
             }}
           >
-            naolmeseret22@gmail.com
+            {currentuser?.email}
           </Typography>
         </LampContainer>
       </Box>
