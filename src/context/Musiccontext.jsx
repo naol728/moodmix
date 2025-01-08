@@ -7,6 +7,8 @@ export default function Musiccontext({ children }) {
   const navigate = useNavigate();
   const [generatedmusic, setGeneratedmusic] = useState([]);
   const [favorite, setFavorite] = useState([]);
+  const [isloading, setIsloading] = useState(false);
+
   function handlefavorite(id) {
     setFavorite((prevFavorites) => {
       const isFavorite = prevFavorites.find((item) => item.id === id);
@@ -24,6 +26,7 @@ export default function Musiccontext({ children }) {
     });
   }
   const handlegenerate = async (genre) => {
+    setIsloading(true);
     const accessToken = await getAccessToken();
 
     const response = await axios.get("https://api.spotify.com/v1/search", {
@@ -37,9 +40,9 @@ export default function Musiccontext({ children }) {
       },
     });
     setGeneratedmusic(response.data.tracks.items);
+    setIsloading(false);
     navigate("/playlist");
   };
-  
 
   return (
     <Music.Provider
@@ -48,6 +51,8 @@ export default function Musiccontext({ children }) {
         handlegenerate,
         handlefavorite,
         favorite,
+        isloading,
+        setIsloading,
       }}
     >
       {children}

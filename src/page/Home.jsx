@@ -38,9 +38,8 @@ export function Home() {
   const images = [
     "hero2.jpg",
     "hero3.jpg",
-
-    "hero5.jpg",
-    "hero6.jpg",
+    "hero8.jpg",
+    "hero9.jpg",
     "hero7.jpg",
     "hero.jpg",
   ];
