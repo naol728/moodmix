@@ -144,9 +144,9 @@ export default function About() {
             </Typography>
           </Box>
           <Box className="flex justify-center items-center space-x-3  font-mono font-lg mb-20">
-            <Typography sx={{fontSize:"1.5rem"}}>Contact us{"    "}</Typography>
+            <Typography sx={{fontSize:"0.5rem"}}>Contact us{"    "}</Typography>
 
-            <a href="mailto:naolmeseret22@gmail.com" className=" text-xl font-bold text-accent">
+            <a href="mailto:naolmeseret22@gmail.com" className=" text-md font-bold text-accent">
               naolmeserert22@gmail.com{" "}
             </a>
           </Box>
