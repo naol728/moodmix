@@ -17,7 +17,7 @@ export default function Dialog() {
   const options = {
     method: "POST",
     headers: {
-      "x-rapidapi-key": "2d62610460msha2933d07910fc7dp19699ejsn186fc15f58b7",
+      "x-rapidapi-key": "4ca82cfd70msh8633c610962ffc6p1a5a51jsn08efc1ec5f44",
       "x-rapidapi-host": "copilot5.p.rapidapi.com",
       "Content-Type": "application/json",
     },
