@@ -69,7 +69,7 @@ export default function Playlist() {
                 />{" "}
               </div>
               <span
-                className={`text-4xl relative text-text cursor-pointer -top-10 ${favorite.find((music) => music.id === item.id)?.isfavorite ? "text-red-600" : ""}`}
+                className={`text-3xl relative right-8 text-text cursor-pointer -top-10 ${favorite.find((music) => music.id === item.id)?.isfavorite ? "text-red-600" : ""}`}
                 onClick={() => handlefavorite(item.id)}
               >
                 {favorite.find((music) => music.id === item.id)?.isfavorite ? (
