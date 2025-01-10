@@ -21,17 +21,17 @@
 ---
 ## 📸 Screenshots
 ### 1,Login page
-![login page](images/Screenshot 2025-01-09 194906.png)
+![login page](images/Screenshot2025-01-09194906.png)
 ### 2. Home Page
-![home page](images/Screenshot 2025-01-09 195132.png)
+![home page](images/Screenshot2025-01-09195132.png)
 ### 3. Dialog Page
-![dialog page](images/Screenshot 2025-01-09 195209.png)
+![dialog page](images/Screenshot2025-01-09195209.png)
 ### 4. Generated Page
-![genrated music page](images/Screenshot 2025-01-09 195250.png)
+![genrated music page](images/Screenshot2025-01-09195250.png)
 ### 5. Profile Page
-![profile page](images/Screenshot 2025-01-09 195404.png)
+![profile page](images/Screenshot2025-01-09195404.png)
 ### 6. About Page
-![About page ](images/Screenshot 2025-01-10 100714.png)
+![About page ](images/Screenshot2025-01-10100714.png)
 
 
 ## ⚙️ Installation
